@@ -99,11 +99,16 @@ class PermutationCalculatorIntArray
             {
                 storage = Permute(querey,storage,0,stacks);
                 // Checking if the first value is the largest
-                if (querey[0] == length - (stacks - 1))
+                if (querey[0] >= length - (stacks - 1))
                 {
                     querey[0]--;
                     querey[indexer]++;
                     indexer++;
+                    if (indexer > stacks-1)
+                    {
+                        // If indexer exceeds stack then we want to go back to the first stack again
+                        indexer = 0;
+                    }
                 }
                 else
                 {
